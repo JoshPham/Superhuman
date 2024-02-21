@@ -7,14 +7,16 @@ public class Superhuman {
     private int stamina;
     private String superpower;
     private String weakness;
+    private String universe;
 
-    public Superhuman(String name, String alias, String superpower, String weakness) {
+    public Superhuman(String name, String alias, String superpower, String weakness, String universe) {
         this.name = name;
         this.alias = alias;
         this.health = 100;
         this.stamina = 100;
         this.superpower = superpower;
         this.weakness = weakness;
+        this.universe = universe;
     }
     
     public String getName() {
@@ -40,6 +42,9 @@ public class Superhuman {
     public String getWeakness() {
         return weakness;
     }
+    public String getUniverse() {
+        return universe;
+    }
 
     public void setStamina(int stamina) {
         this.stamina = stamina;
@@ -47,6 +52,27 @@ public class Superhuman {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int determineDamage() {
+        int baseDamage = 10;
+        if (superpower.equals(weakness)) {
+            baseDamage = 0;
+        } else if (superpower.equals("flight") || superpower.equals("super strength")) {
+            baseDamage = 20;
+        } else if (superpower.equals("telekinesis") || superpower.equals("telepathy")) {
+            baseDamage = 15;
+        } else if (superpower.equals("super speed") || superpower.equals("invisibility")) {
+            baseDamage = 10;
+        } else {
+            baseDamage = 5;
+        }
+
+        if (universe.equals("Marvel")) {
+            baseDamage += 5;
+        }
+        
+        return baseDamage;
     }
 
     public void limitStats() {

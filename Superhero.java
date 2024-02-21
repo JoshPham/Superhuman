@@ -3,8 +3,8 @@ package csa.Superhuman;
 public class Superhero extends Superhuman {
     private int motivation;
 
-    public Superhero(String name, String alias, String superpower, String weakness) {
-        super(name, alias, superpower, weakness);
+    public Superhero(String name, String alias, String superpower, String weakness, String universe) {
+        super(name, alias, superpower, weakness, universe);
         this.motivation = 0;
     }
 
@@ -33,7 +33,7 @@ public class Superhero extends Superhuman {
     }
 
     public void attack(Supervillain target) {
-        int damage = (int) (Math.random() * 21) + target.getAnger() / 10;
+        int damage = (int) (Math.random() * 21) + determineDamage();
         target.setStamina(target.getStamina() - damage);
         target.setHealth(target.getHealth() - damage);
         target.setAnger(target.getAnger() - 20);
