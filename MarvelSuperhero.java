@@ -29,8 +29,7 @@ public class MarvelSuperhero extends Superhero {
 
         String earth = earths[(int) (Math.random() * earths.length)];
         if (earth.equals("616")) {
-            System.out.println(getAlias() + " is now in Earth-616!");
-            System.out.println("The main Marvel universe!");
+            System.out.println(getAlias() + " is now in Earth-616! The main Marvel universe!");
         } else {
             System.out.println(getAlias() + " is now in Earth " + earth + "!");
         }
